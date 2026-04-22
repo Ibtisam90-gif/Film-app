@@ -1,10 +1,11 @@
+// Step 1: Fetch data from TVMaze API
 'use strict';
 import './style.css';
 
 let alleFilms = [];
 let favorieten = JSON.parse(localStorage.getItem('favorieten')) || [];
 
-// 🔹 Data ophalen
+// Data ophalen
 async function haalFilms() {
   const response = await fetch('https://api.tvmaze.com/shows');
   const data = await response.json();
@@ -13,7 +14,8 @@ async function haalFilms() {
   updateFilms();
 }
 
-// 🔹 Films tonen
+// Films tonen
+// Step 2: Display films in cards with image, genre and rating
 function toonFilms(films) {
   const container = document.querySelector('.films');
   container.innerHTML = '';
@@ -33,7 +35,7 @@ function toonFilms(films) {
 
     const knop = div.querySelector('.favBtn');
 
-    // ❤️ FAVORIET CLICK
+    // FAVORIET CLICK
     knop.addEventListener('click', (e) => {
       e.stopPropagation(); // voorkomt popup
 
@@ -51,7 +53,8 @@ function toonFilms(films) {
       toonFavorieten();
     });
 
-    // 🎬 POPUP CLICK
+    // POPUP CLICK
+    // Step 7: Add popup modal and improve UI design
     div.addEventListener('click', () => {
       const modal = document.querySelector('#modal');
       const modalBody = document.querySelector('#modalBody');
@@ -70,8 +73,10 @@ function toonFilms(films) {
   });
 }
 
-// 🔥 COMBINATIE FUNCTIE
+// COMBINATIE FUNCTIE
+// Step 3: Implement search functionality
 function updateFilms() {
+  // Step 4: Add filtering by genre and sorting options
   const zoekTerm = document.querySelector('#zoekInput').value.toLowerCase();
   const gekozenGenre = document.querySelector('#genreSelect').value;
   const sortKeuze = document.querySelector('#sortSelect').value;
@@ -99,7 +104,8 @@ function updateFilms() {
   toonFilms(resultaat);
 }
 
-// 🔹 Favorieten
+// Favorieten
+// Step 5: Implement favorites with localStorage
 function toonFavorieten() {
   const container = document.querySelector('#favorieten');
   container.innerHTML = '';
@@ -125,7 +131,8 @@ function toonFavorieten() {
   });
 }
 
-// 🔹 Theme
+// Theme
+// Step 6: Add dark/light mode with system preference
 const themeSelect = document.querySelector('#themeSelect');
 
 themeSelect.addEventListener('change', () => {
@@ -161,7 +168,7 @@ function laadThema() {
   }
 }
 
-// 🔹 Events
+// Events
 document.querySelector('#zoekInput').addEventListener('input', updateFilms);
 document.querySelector('#sortSelect').addEventListener('change', updateFilms);
 document.querySelector('#genreSelect').addEventListener('change', updateFilms);
@@ -171,7 +178,7 @@ document.querySelector('#closeModal')
     document.querySelector('#modal').classList.add('hidden');
   });
 
-// 🔹 Start
+//Start
 haalFilms();
 toonFavorieten();
 laadThema();
