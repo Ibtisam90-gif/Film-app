@@ -15,7 +15,7 @@ async function haalFilms() {
 }
 
 // Films tonen
-// Step 2: Display films in cards with image, genre and rating
+// Step 2: Display films in UI cards
 function toonFilms(films) {
   const container = document.querySelector('.films');
   container.innerHTML = '';
