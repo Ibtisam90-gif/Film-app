@@ -132,7 +132,7 @@ function toonFavorieten() {
 }
 
 // Theme
-// Step 6: Add dark/light mode with system preference
+// Step 6: Dark mode and theme preferences
 const themeSelect = document.querySelector('#themeSelect');
 
 themeSelect.addEventListener('change', () => {
