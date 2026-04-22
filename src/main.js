@@ -54,7 +54,7 @@ function toonFilms(films) {
     });
 
     // POPUP CLICK
-    // Step 7: Add popup modal and improve UI design
+    // Step 7: Popup modal for film details
     div.addEventListener('click', () => {
       const modal = document.querySelector('#modal');
       const modalBody = document.querySelector('#modalBody');
