@@ -76,7 +76,7 @@ function toonFilms(films) {
 // COMBINATIE FUNCTIE
 // Step 3: Add search functionality
 function updateFilms() {
-  // Step 4: Add filtering by genre and sorting options
+// Step 4: Add filter and sorting
   const zoekTerm = document.querySelector('#zoekInput').value.toLowerCase();
   const gekozenGenre = document.querySelector('#genreSelect').value;
   const sortKeuze = document.querySelector('#sortSelect').value;
