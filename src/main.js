@@ -105,7 +105,7 @@ function updateFilms() {
 }
 
 // Favorieten
-// Step 5: Implement favorites with localStorage
+// Step 5: Favorites with localStorage
 function toonFavorieten() {
   const container = document.querySelector('#favorieten');
   container.innerHTML = '';
