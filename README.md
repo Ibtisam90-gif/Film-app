@@ -80,8 +80,14 @@ npm run dev
 
 ## Screenshots
 
-(Voeg hier screenshots toe van je applicatie)
+### Home
+![Home](images/home.png)
 
+### Dark Mode
+![Dark Mode](images/dark-mode.png)
+
+### Popup
+![Popup](images/popup.png)
 
 ## Bronnen
 
