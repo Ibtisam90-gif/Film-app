@@ -482,3 +482,13 @@ body.dark .modal-content {
   background-color: #1e1e1e;
   color: white;
 }
+.films > div {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+.films > div.show {
+  opacity: 1;
+  transform: translateY(0);
+}

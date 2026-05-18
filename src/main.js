@@ -81,11 +81,17 @@ function toonFilms(films) {
 
       modal.classList.remove('hidden');
     });
-
+observer.observe(div);
     container.appendChild(div);
   });
 }
-
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+});
 // COMBINATIE FUNCTIE
 // Step 3: Add search functionality
 function updateFilms() {
