@@ -14,8 +14,8 @@ async function haalFilms() {
       throw new Error('API fout');
     }
 
-    const data = await response.json();
-
+    const data = await response.json()
+  .then(data => data);
     alleFilms = data.slice(0, 50);
 
     updateFilms();
