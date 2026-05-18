@@ -69,33 +69,43 @@ function toonFilms(films) {
     // POPUP CLICK
     // Step 7: Popup modal for film details
     div.addEventListener('click', () => {
-      const modal = document.querySelector('#modal');
-      const modalBody = document.querySelector('#modalBody');
+  const modal = document.querySelector('#modal');
+  const modalBody = document.querySelector('#modalBody');
 
-      modalBody.innerHTML = `
-  <h2 class="modal-title">${film.name}</h2>
+  modalBody.innerHTML = `
+    <button id="closeModal">✖</button>
 
-  <img class="modal-image" src="${film.image?.medium}" alt="${film.name}">
+    <h2 class="modal-title">${film.name}</h2>
 
-  <div class="modal-info">
-    <p><span>Status:</span> ${film.status ?? 'Unknown'}</p>
+    <img class="modal-image"
+      src="${film.image?.medium}"
+      alt="${film.name}">
 
-    <p><span>Premiered:</span> ${film.premiered ?? 'Unknown'}</p>
+    <div class="modal-info">
+      <p><span>Status:</span> ${film.status ?? 'Unknown'}</p>
 
-    <p><span>Runtime:</span> ${film.runtime ?? 'Unknown'} min</p>
+      <p><span>Premiered:</span> ${film.premiered ?? 'Unknown'}</p>
 
-    <p><span>Genres:</span> ${film.genres.join(', ')}</p>
+      <p><span>Runtime:</span> ${film.runtime ?? 'Unknown'} min</p>
 
-    <p><span>Rating:</span> ⭐ ${film.rating?.average ?? 'N/A'}</p>
-  </div>
+      <p><span>Genres:</span> ${film.genres.join(', ')}</p>
 
-  <div class="modal-summary">
-    ${film.summary ?? 'No summary available'}
-  </div>
-`;
+      <p><span>Rating:</span> ⭐ ${film.rating?.average ?? 'N/A'}</p>
+    </div>
 
-      modal.classList.remove('hidden');
+    <div class="modal-summary">
+      ${film.summary ?? 'No summary available'}
+    </div>
+  `;
+
+  modal.classList.remove('hidden');
+
+  document.querySelector('#closeModal')
+    .addEventListener('click', () => {
+      modal.classList.add('hidden');
     });
+});
+
 observer.observe(div);
     container.appendChild(div);
   });
