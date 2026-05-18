@@ -40,62 +40,41 @@ De API levert:
 * Vite
 
 ## Technische implementatie
-
 ### DOM manipulatie
 
-* querySelector → elementen selecteren
-* innerHTML → dynamisch content tonen
-* addEventListener → interactie
+* `querySelector` → gebruikt om HTML-elementen te selecteren (bv. regel 134–141)
+* `innerHTML` → gebruikt om dynamische filmdata weer te geven (bv. regel 22–30)
+* `addEventListener` → gebruikt voor interactie zoals zoeken, favorieten en popup (bv. regel 35, 148–155)
 
 ### Modern JavaScript
 
-* const en let
-* template literals
-* array methods (filter, sort)
-* arrow functions
-* ternary operator
+* `const` → gebruikt voor variabelen die niet veranderen (bv. regel 20, 33, 72)
+* `let` → gebruikt voor veranderlijke data zoals favorieten en films (regel 5–6)
+* Template literals → gebruikt voor dynamische HTML (`${film.name}`) (regel 22–30)
+* Array methods:
 
-### API & Data
+  * `filter()` → gebruikt bij zoeken en favorieten (regel 82, 108)
+  * `sort()` → gebruikt voor sorteerfunctie (regel 93–97)
+  * `some()` → controleert of favoriet al bestaat (regel 34)
+  * `forEach()` → gebruikt om films weer te geven (regel 19)
+* Arrow functions → gebruikt in event listeners en array methods
+* Ternary operator (`? :`) → gebruikt voor ratings en favoriet icoon (regel 27, 28)
 
-* fetch → data ophalen
-* JSON verwerken
+### Async & API
+
+* `fetch()` → haalt data op van TVMaze API (regel 10)
+* `async/await` → gebruikt voor asynchrone API-calls (regel 9)
+* Promise syntax (`.then()`) → gebruikt als extra voorbeeld van Promise handling
+* JSON verwerking → API-data wordt verwerkt en weergegeven in de applicatie
+
+### Observer API
+
+* `IntersectionObserver` → gebruikt om film cards zichtbaar te animeren tijdens scrollen
 
 ### Opslag
 
-* localStorage → favorieten bewaren
-* thema voorkeur opslaan
+* `localStorage` → slaat favorieten en thema voorkeur op (regel 6, 45, 120)
 
-## Installatie
+### Error handling
 
-1. Open project in VS Code
-2. Run:
-
-```bash
-npm install
-npm run dev
-```
-
-3. Open: http://localhost:5173/
-
-
-## Screenshots
-
-### Home
-![Home](images/home.png)
-
-### Dark Mode
-![Dark Mode](images/dark-mode.png)
-
-### Popup
-![Popup](images/popup.png)
-
-## Bronnen
-
-* TVMaze API
-* MDN Web Docs
-* ChatGPT (voor begeleiding en uitleg)
-
-
-## Development Process
-
-This project was built step by step, starting from API integration to advanced UI features such as filtering, sorting, favorites, and UI improvements.
+* `try/catch` → voorkomt dat de applicatie crasht wanneer de API niet beschikbaar is
