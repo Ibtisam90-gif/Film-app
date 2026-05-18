@@ -183,18 +183,21 @@ body.dark #modalBody {
 
 /* Close knop */
 #closeModal {
-  position: sticky;
-  top: 0;
+  position: absolute;
+  top: 15px;
+  right: 15px;
 
-  float: right;
+  font-size: 28px;
+  font-weight: bold;
 
-  font-size: 22px;
   cursor: pointer;
 
   background: transparent;
   border: none;
 
-  color: inherit;
+  color: #e50914;
+
+  z-index: 10;
 }
 
 /* Popup styling */
@@ -222,4 +225,7 @@ body.dark #modalBody {
 .modal-summary {
   margin-top: 20px;
   line-height: 1.6;
+}
+#closeModal:hover {
+  transform: scale(1.2);
 }
