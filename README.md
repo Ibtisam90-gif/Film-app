@@ -29,6 +29,17 @@ De API levert:
 * Status
 * Releasedatum
 
+##  Screenshots
+### Home
+### Home
+![Home]![alt text](<images/  home.png>)
+
+### Dark Mode
+![Dark Mode](images/dark-mode.png)
+
+### Popup
+![Popup]![alt text](<images/  popup.png>)
+
 ## Gebruikte technologieën
 
 * JavaScript (ES6)
