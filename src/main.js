@@ -73,11 +73,22 @@ function toonFilms(films) {
       const modalBody = document.querySelector('#modalBody');
 
       modalBody.innerHTML = `
-        <h2>${film.name}</h2>
-        <img src="${film.image?.medium}" alt="${film.name}">
-        <p>${film.genres.join(', ')}</p>
-        <p>⭐ Rating: ${film.rating?.average ?? 'N/A'}</p>
-      `;
+  <h2>${film.name}</h2>
+
+  <img src="${film.image?.medium}" alt="${film.name}">
+
+  <p><strong>Genres:</strong> ${film.genres.join(', ')}</p>
+
+  <p><strong>Rating:</strong> ${film.rating?.average ?? 'N/A'}</p>
+
+  <p><strong>Status:</strong> ${film.status ?? 'Unknown'}</p>
+
+  <p><strong>Premiered:</strong> ${film.premiered ?? 'Unknown'}</p>
+
+  <p><strong>Runtime:</strong> ${film.runtime ?? 'Unknown'} min</p>
+
+  <p>${film.summary ?? 'No summary available'}</p>
+`;
 
       modal.classList.remove('hidden');
     });
