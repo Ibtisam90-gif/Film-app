@@ -7,13 +7,26 @@ let favorieten = JSON.parse(localStorage.getItem('favorieten')) || [];
 
 // Data ophalen
 async function haalFilms() {
-  const response = await fetch('https://api.tvmaze.com/shows');
-  const data = await response.json();
+  try {
+    const response = await fetch('https://api.tvmaze.com/shows');
 
-  alleFilms = data.slice(0, 50);
-  updateFilms();
+    if (!response.ok) {
+      throw new Error('API fout');
+    }
+
+    const data = await response.json();
+
+    alleFilms = data.slice(0, 50);
+
+    updateFilms();
+
+  } catch (error) {
+    document.querySelector('.films').innerHTML =
+      `<p>Er ging iets mis bij het laden van de data.</p>`;
+
+    console.error(error);
+  }
 }
-
 // Films tonen
 // Step 2: Display films in UI cards
 function toonFilms(films) {
@@ -76,7 +89,7 @@ function toonFilms(films) {
 // COMBINATIE FUNCTIE
 // Step 3: Add search functionality
 function updateFilms() {
-// Step 4: Add filter and sorting
+  // Step 4: Add filter and sorting
   const zoekTerm = document.querySelector('#zoekInput').value.toLowerCase();
   const gekozenGenre = document.querySelector('#genreSelect').value;
   const sortKeuze = document.querySelector('#sortSelect').value;
@@ -126,7 +139,6 @@ function toonFavorieten() {
       toonFavorieten();
       updateFilms();
     });
-
     container.appendChild(div);
   });
 }
