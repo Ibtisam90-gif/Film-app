@@ -121,7 +121,13 @@ const observer = new IntersectionObserver((entries) => {
 // Step 3: Add search functionality
 function updateFilms() {
   // Step 4: Add filter and sorting
-  const zoekTerm = document.querySelector('#zoekInput').value.toLowerCase();
+const zoekInput = document.querySelector('#zoekInput');
+const zoekTerm = zoekInput.value.trim().toLowerCase();
+
+if (zoekTerm.length > 30) {
+  alert('Zoekterm is te lang');
+  return;
+}
   const gekozenGenre = document.querySelector('#genreSelect').value;
   const sortKeuze = document.querySelector('#sortSelect').value;
 
