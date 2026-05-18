@@ -73,21 +73,25 @@ function toonFilms(films) {
       const modalBody = document.querySelector('#modalBody');
 
       modalBody.innerHTML = `
-  <h2>${film.name}</h2>
+  <h2 class="modal-title">${film.name}</h2>
 
-  <img src="${film.image?.medium}" alt="${film.name}">
+  <img class="modal-image" src="${film.image?.medium}" alt="${film.name}">
 
-  <p><strong>Genres:</strong> ${film.genres.join(', ')}</p>
+  <div class="modal-info">
+    <p><span>Status:</span> ${film.status ?? 'Unknown'}</p>
 
-  <p><strong>Rating:</strong> ${film.rating?.average ?? 'N/A'}</p>
+    <p><span>Premiered:</span> ${film.premiered ?? 'Unknown'}</p>
 
-  <p><strong>Status:</strong> ${film.status ?? 'Unknown'}</p>
+    <p><span>Runtime:</span> ${film.runtime ?? 'Unknown'} min</p>
 
-  <p><strong>Premiered:</strong> ${film.premiered ?? 'Unknown'}</p>
+    <p><span>Genres:</span> ${film.genres.join(', ')}</p>
 
-  <p><strong>Runtime:</strong> ${film.runtime ?? 'Unknown'} min</p>
+    <p><span>Rating:</span> ⭐ ${film.rating?.average ?? 'N/A'}</p>
+  </div>
 
-  <p>${film.summary ?? 'No summary available'}</p>
+  <div class="modal-summary">
+    ${film.summary ?? 'No summary available'}
+  </div>
 `;
 
       modal.classList.remove('hidden');
